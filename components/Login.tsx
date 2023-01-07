@@ -2,7 +2,7 @@ import { Button, Form, Input, Select } from 'antd'
 import React from 'react'
 
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
-
+import { useRouter } from 'next/router'
 const { Option } = Select
 
 // const layout = {
@@ -13,11 +13,18 @@ const { Option } = Select
 // 	wrapperCol: { offset: 8, span: 16 },
 // }
 
-const Login = () => {
+const Login = ({onLogin, loading, setLoading}: any) => {
 	const [form] = Form.useForm()
+	const router = useRouter();
 
-	const onFinish = (values: any) => {
+	const onFinish = async (values: any) => {
 		console.log(values)
+		setLoading(true);
+		const res = await onLogin(values.username, values.password);
+		setLoading(false);
+		if(res && res.status == 200) {
+			router.push('/dashboard');
+		}
 	}
 
 	const onReset = () => {
@@ -26,10 +33,10 @@ const Login = () => {
 
 	return (
 		<Form form={form} name="control-hooks" onFinish={onFinish}>
-			<Form.Item name="email" rules={[{ required: true }]}>
+			<Form.Item name="username" rules={[{ required: true }]}>
 				<Input
 					size="large"
-					placeholder="Email"
+					placeholder="Username"
 					style={{ marginTop: '4%' }}
 					prefix={
 						<UserOutlined

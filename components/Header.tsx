@@ -8,29 +8,26 @@ import {
 } from '@ant-design/icons'
 import { Dropdown, Menu, Space } from 'antd'
 
+let handleLogout = () => {};
 const menu = (
 	<Menu
 		items={[
 			{
-				label: <a href="https://www.antgroup.com">1st menu item</a>,
-				key: '0',
-			},
-			{
-				label: <a href="https://www.aliyun.com">2nd menu item</a>,
-				key: '1',
-			},
-			{
-				type: 'divider',
-			},
-			{
-				label: '3rd menu item',
-				key: '3',
-			},
+				label: 'Logout',
+				key: 0,
+				onClick: () => {
+					handleLogout();
+				}
+			}
 		]}
 	/>
 )
 
-const CustomHeader = () => {
+const CustomHeader = ({user, onLogout}: any) => {
+	console.log("USER: ", user);
+	handleLogout = () => {
+		onLogout();
+	}
 	return (
 		<div className={styles.custom__header__wrapper}>
 			<div className={styles.custom__part__1}>
@@ -61,7 +58,7 @@ const CustomHeader = () => {
 						>
 							<a onClick={(e) => e.preventDefault()}>
 								<Space>
-									Dhruv Dave
+									{user?.first_name}{user?.last_name}
 									<DownOutlined />
 								</Space>
 							</a>

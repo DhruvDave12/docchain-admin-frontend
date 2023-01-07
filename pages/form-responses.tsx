@@ -1,21 +1,54 @@
 import React from 'react'
-import CustomButton from '../components/CustomButton'
+import FormOverview from '../components/form-responses/FormOverview'
 import CustomTable from '../components/table'
-import styles from '../styles/Pages/form-response.module.css'
+import AxiosInstance from '../services/AxiosInstance'
+import styles from '../styles/Pages/form-responses.module.css'
 
+const TEMP_FORM_RESPONSES = [
+	{
+		id: 1,
+		name: 'John Doe',
+	},
+	{
+		id: 2,
+		name: 'Jane Doe',
+	},	
+	{
+		id: 3,
+		name: 'John Doe',
+	},
+	{
+		id: 4,
+		name: 'Jane Doe',
+	}
+]
 const FormResponses = () => {
-	return (
-		<div className={styles.form__response__wrapper}>
-			<div className={styles.form__response__header}>
-				<div className={styles.container__part1}>
-					<p className={styles.form__response__title}>Form Responses</p>
-				</div>
-				<div className={styles.button__container}>
-					<CustomButton handleClick={() => {}} title={'Download'} />
-				</div>
-			</div>
+	const [forms, setForms] = React.useState([])
 
-			<CustomTable />
+	React.useEffect(() => {
+		const getForms = async () => {
+			
+			const res = await AxiosInstance.get('adminpanel/form/college');
+			
+			// TODO -> Store it in the state
+			console.log("RES: ", res.data);
+			setForms(res.data);
+		}	
+
+		getForms();
+	}, []);
+
+	return (
+		<div className={styles.form__responses__wrapper}>
+			<p className={styles.form__responses_title}>Forms</p>
+
+			<div className={styles.form__responses__grid}>
+				{
+					forms.map((form) => (
+						<FormOverview form={form} />
+					))
+				}
+			</div>
 		</div>
 	)
 }

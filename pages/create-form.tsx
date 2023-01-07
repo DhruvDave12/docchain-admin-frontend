@@ -23,10 +23,6 @@ const CreateForm = () => {
 				return null
 		}
 	}
-
-	const ACCESS_TOKEN =
-		'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc4Nzc5NDEzLCJpYXQiOjE2NjE0OTk0MTMsImp0aSI6IjdiM2E2NzYzNWIxYjRkYWZiMTljYTg1NmI3NGQ0MWI1IiwidXNlcl9pZCI6Mn0.dzHFep_buR6XWpNCkrOkGEuh7Ah1H3M0M1sfL85XogM'
-
 	const OWNER_ID = 2
 
 	const submitHandler = async () => {
@@ -49,19 +45,11 @@ const CreateForm = () => {
 					description,
 					academic_year: academicYear,
 					owner: OWNER_ID,
-				},
-				{
-					headers: {
-						Authorization: `Bearer ${ACCESS_TOKEN}`,
-					},
 				}
 			)
 
 			const formId = res.data.id
 			setFormId(formId)
-			console.log(formId)
-
-			console.log(selectedCheckboxOptions)
 			await Promise.all(
 				selectedCheckboxOptions.map(
 					async (selectedCheckboxOption: any) =>
@@ -71,11 +59,6 @@ const CreateForm = () => {
 								form: formId,
 								title: selectedCheckboxOption,
 								technique: 'pre_verified',
-							},
-							{
-								headers: {
-									Authorization: `Bearer ${ACCESS_TOKEN}`,
-								},
 							}
 						)
 				)
@@ -91,11 +74,6 @@ const CreateForm = () => {
 								form: formId,
 								title: customDoc.title,
 								technique: 'file_upload',
-							},
-							{
-								headers: {
-									Authorization: `Bearer ${ACCESS_TOKEN}`,
-								},
 							}
 						)
 					}

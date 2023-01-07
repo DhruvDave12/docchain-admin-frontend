@@ -146,114 +146,115 @@ const columns = [
 		width: '5%',
 	},
 ]
-const data = [
-	{
-		id: 1,
-		image: imageLink,
-		name: 'Dhruv Dave',
-		appliedOn: 'August 22, 2022',
-		branch: 'CSE',
-		degree: 'B.Tech',
-		status: 'Verified',
-		action: '...',
-	},
-	{
-		id: 2,
-		image: imageLink,
-		name: 'Dhruv Dave',
-		appliedOn: 'August 22, 2022',
-		branch: 'CSE',
-		degree: 'B.Tech',
-		status: 'Unverified',
-		action: '...',
-	},
-	{
-		id: 3,
-		image: imageLink,
-		name: 'Dhruv Dave',
-		appliedOn: 'August 22, 2022',
-		branch: 'CSE',
-		degree: 'B.Tech',
-		status: 'Verified',
-		action: '...',
-	},
-	{
-		id: 4,
-		image: imageLink,
-		name: 'Dhruv Dave',
-		appliedOn: 'August 22, 2022',
-		branch: 'CSE',
-		degree: 'B.Tech',
-		status: 'Verified',
-		action: '...',
-	},
-	{
-		id: 5,
-		image: imageLink,
-		name: 'Dhruv Dave5',
-		appliedOn: 'August 22, 2022',
-		branch: 'CSE',
-		degree: 'B.Tech',
-		status: 'Rejected',
-		action: '...',
-	},
-	{
-		id: 6,
-		image: imageLink,
-		name: 'Dhruv Dave6',
-		appliedOn: 'August 22, 2022',
-		branch: 'Mechanical',
-		degree: 'M.Tech',
-		status: 'Peassesment',
-		action: '...',
-	},
-	{
-		id: 7,
-		image: imageLink,
-		name: 'Dhruv Dave7',
-		appliedOn: 'August 22, 2022',
-		branch: 'Mechanical',
-		degree: 'M.Tech',
-		status: 'Peassesment',
-		action: '...',
-	},
-	{
-		id: 8,
-		image: imageLink,
-		name: 'Dhruv Dave8',
-		appliedOn: 'August 22, 2022',
-		branch: 'Mechanical',
-		degree: 'M.Tech',
-		status: 'Peassesment',
-		action: '...',
-	},
-	{
-		id: 9,
-		image: imageLink,
-		name: 'Dhruv Dave9',
-		appliedOn: 'August 22, 2022',
-		branch: 'Mechanical',
-		degree: 'M.Tech',
-		status: 'Peassesment',
-		action: '...',
-	},
-	{
-		id: 10,
-		image: imageLink,
-		name: 'Dhruv Dave10',
-		appliedOn: 'August 22, 2022',
-		branch: 'Mechanical',
-		degree: 'M.Tech',
-		status: 'Peassesment',
-		action: '...',
-	},
-]
+// const data = [
+// 	{
+// 		id: 1,
+// 		image: imageLink,
+// 		name: 'Dhruv Dave',
+// 		appliedOn: 'August 22, 2022',
+// 		branch: 'CSE',
+// 		degree: 'B.Tech',
+// 		status: 'Verified',
+// 		action: '...',
+// 	},
+// 	{
+// 		id: 2,
+// 		image: imageLink,
+// 		name: 'Dhruv Dave',
+// 		appliedOn: 'August 22, 2022',
+// 		branch: 'CSE',
+// 		degree: 'B.Tech',
+// 		status: 'Unverified',
+// 		action: '...',
+// 	},
+// 	{
+// 		id: 3,
+// 		image: imageLink,
+// 		name: 'Dhruv Dave',
+// 		appliedOn: 'August 22, 2022',
+// 		branch: 'CSE',
+// 		degree: 'B.Tech',
+// 		status: 'Verified',
+// 		action: '...',
+// 	},
+// 	{
+// 		id: 4,
+// 		image: imageLink,
+// 		name: 'Dhruv Dave',
+// 		appliedOn: 'August 22, 2022',
+// 		branch: 'CSE',
+// 		degree: 'B.Tech',
+// 		status: 'Verified',
+// 		action: '...',
+// 	},
+// 	{
+// 		id: 5,
+// 		image: imageLink,
+// 		name: 'Dhruv Dave5',
+// 		appliedOn: 'August 22, 2022',
+// 		branch: 'CSE',
+// 		degree: 'B.Tech',
+// 		status: 'Rejected',
+// 		action: '...',
+// 	},
+// 	{
+// 		id: 6,
+// 		image: imageLink,
+// 		name: 'Dhruv Dave6',
+// 		appliedOn: 'August 22, 2022',
+// 		branch: 'Mechanical',
+// 		degree: 'M.Tech',
+// 		status: 'Peassesment',
+// 		action: '...',
+// 	},
+// 	{
+// 		id: 7,
+// 		image: imageLink,
+// 		name: 'Dhruv Dave7',
+// 		appliedOn: 'August 22, 2022',
+// 		branch: 'Mechanical',
+// 		degree: 'M.Tech',
+// 		status: 'Peassesment',
+// 		action: '...',
+// 	},
+// 	{
+// 		id: 8,
+// 		image: imageLink,
+// 		name: 'Dhruv Dave8',
+// 		appliedOn: 'August 22, 2022',
+// 		branch: 'Mechanical',
+// 		degree: 'M.Tech',
+// 		status: 'Peassesment',
+// 		action: '...',
+// 	},
+// 	{
+// 		id: 9,
+// 		image: imageLink,
+// 		name: 'Dhruv Dave9',
+// 		appliedOn: 'August 22, 2022',
+// 		branch: 'Mechanical',
+// 		degree: 'M.Tech',
+// 		status: 'Peassesment',
+// 		action: '...',
+// 	},
+// 	{
+// 		id: 10,
+// 		image: imageLink,
+// 		name: 'Dhruv Dave10',
+// 		appliedOn: 'August 22, 2022',
+// 		branch: 'Mechanical',
+// 		degree: 'M.Tech',
+// 		status: 'Peassesment',
+// 		action: '...',
+// 	},
+// ]
 
-const CustomTable = () => {
-	const formId = useFormStore((state) => state.formId)
+const CustomTable = ({data, loading}: any) => {
+	console.log("DATA: ", data);
+	// const formId = useFormStore((state) => state.formId)
 
-	const [data, setData] = useState([])
-	const [loading, setLoading] = useState(false)
+	// const [data, setData] = useState([])
+	// const [loading, setLoading] = useState(false)
 	const [pagination, setPagination] = useState({
 		current: 1,
 		pageSize: 6,
@@ -261,22 +262,22 @@ const CustomTable = () => {
 	})
 
 	// API REQUEST FROM BACKEND
-	useEffect(() => {
-		console.log('FORM ID', formId)
-		const ACCESS_TOKEN =
-			'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc4Nzc5NDEzLCJpYXQiOjE2NjE0OTk0MTMsImp0aSI6IjdiM2E2NzYzNWIxYjRkYWZiMTljYTg1NmI3NGQ0MWI1IiwidXNlcl9pZCI6Mn0.dzHFep_buR6XWpNCkrOkGEuh7Ah1H3M0M1sfL85XogM'
-		AxiosInstance.post(
-			'/adminpanel/view-responses/',
-			{
-				form: formId,
-			},
-			{
-				headers: {
-					Authorization: `Bearer ${ACCESS_TOKEN}`,
-				},
-			}
-		).then((res) => console.log(res.data))
-	}, [formId])
+	// useEffect(() => {
+	// 	console.log('FORM ID', formId)
+	// 	const ACCESS_TOKEN =
+	// 		'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc4Nzc5NDEzLCJpYXQiOjE2NjE0OTk0MTMsImp0aSI6IjdiM2E2NzYzNWIxYjRkYWZiMTljYTg1NmI3NGQ0MWI1IiwidXNlcl9pZCI6Mn0.dzHFep_buR6XWpNCkrOkGEuh7Ah1H3M0M1sfL85XogM'
+	// 	AxiosInstance.post(
+	// 		'/adminpanel/view-responses/',
+	// 		{
+	// 			form: formId,
+	// 		},
+	// 		{
+	// 			headers: {
+	// 				Authorization: `Bearer ${ACCESS_TOKEN}`,
+	// 			},
+	// 		}
+	// 	).then((res) => console.log(res.data))
+	// }, [formId])
 
 	// const fetchData = (params: any) => {
 	// 	setLoading(true)

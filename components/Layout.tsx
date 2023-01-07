@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useRouter } from 'next/router'
 import {
 	DownOutlined,
@@ -11,6 +11,8 @@ import { Layout, Menu } from 'antd'
 const { Content, Sider } = Layout
 import styles from '../styles/Components/Layout.module.css'
 import CustomHeader from '../components/Header'
+import { AuthContext } from '../context/auth.context'
+import { toast } from "react-toastify";
 
 interface IProps {
 	children: React.ReactNode
@@ -19,7 +21,7 @@ interface IProps {
 const items1 = ['1', '2', '3'].map((key) => ({
 	key,
 	label: `nav ${key}`,
-}))
+}));
 
 const items2 = [
 	UserOutlined,
@@ -32,7 +34,12 @@ const items2 = [
 const CustomLayout = ({ children }: IProps) => {
 	const router = useRouter()
 	const [collapsed, setCollapsed] = useState(false)
+	const {isLoggedIn, user, onLogout} = useContext(AuthContext);
 
+	const handleNotLoggedIn = (route_name: any) => {
+		toast("Please login to access this feature", { hideProgressBar: false, autoClose: 2000, type: 'error' });
+		router.push(`/${route_name}`);
+	}
 	const navItems = React.useMemo(
 		() => [
 			{
@@ -45,7 +52,7 @@ const CustomLayout = ({ children }: IProps) => {
 				key: 1,
 				icon: React.createElement(UserOutlined),
 				label: 'Dashboard',
-				onClick: () => router.push('/dashboard'),
+				onClick: () => isLoggedIn ? router.push('/dashboard') : handleNotLoggedIn('auth'),
 			},
 			{
 				key: 2,
@@ -55,12 +62,12 @@ const CustomLayout = ({ children }: IProps) => {
 					{
 						key: 0,
 						label: 'Create Form',
-						onClick: () => router.push('/create-form'),
+						onClick: () => isLoggedIn ? router.push('/create-form') : handleNotLoggedIn('auth'),
 					},
 					{
 						key: 1,
 						label: 'View Form Responses',
-						onClick: () => router.push('/form-responses'),
+						onClick: () => isLoggedIn ? router.push('/form-responses') : handleNotLoggedIn('auth'),
 					},
 				],
 			},
@@ -72,7 +79,7 @@ const CustomLayout = ({ children }: IProps) => {
 					{
 						key: 0,
 						label: 'Create Opportunity',
-						onClick: () => router.push('/create-opportunity'),
+						onClick: () => isLoggedIn ? router.push('/create-opportunity') : handleNotLoggedIn('auth'),
 					},
 					{
 						key: 1,
@@ -122,7 +129,11 @@ const CustomLayout = ({ children }: IProps) => {
 						padding: '0 24px 24px',
 					}}
 				>
-					<CustomHeader />
+					{
+						isLoggedIn ? 
+						<CustomHeader user={user} onLogout={onLogout}/>
+						: null
+					}
 					<Content className={styles.custom__content}>{children}</Content>
 				</Layout>
 			</Layout>

@@ -1,38 +1,49 @@
-import React from 'react'
-import AuthHeader from '../components/AuthHeader'
-
-import { Typography } from 'antd'
-import { Tabs } from 'antd'
-import Login from '../components/Login'
-import SignUp from '../components/SignUp'
-
-// const { Content } = Layout
-const { Title } = Typography
-const { TabPane } = Tabs
-import CustomLayout from '../components/Layout'
-const onChange = (key: string) => {
-	console.log(key)
-}
+import React, { useContext } from "react";
+import AuthHeader from "../components/AuthHeader";
+import Login from "../components/Login";
+import { AuthContext } from "../context/auth.context";
 
 const Auth = () => {
-	return (
-		<div>
-			<AuthHeader />
-			<Tabs
-				size="large"
-				defaultActiveKey="1"
-				onChange={onChange}
-				style={{ width: '30vw', margin: '2% auto 10% auto' }}
-			>
-				<TabPane tab="Login" key="1">
-					<Login />
-				</TabPane>
-				<TabPane tab="Sign Up" key="2">
-					<SignUp />
-				</TabPane>
-			</Tabs>
-		</div>
-	)
-}
+  const { onLogin } = useContext(AuthContext);
+  const [loading, setLoading] = React.useState(false);
 
-export default Auth
+  return (
+    <div>
+      <AuthHeader />
+      {!loading ? (
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div style={{ width: "60%" }}>
+            <Login
+              onLogin={onLogin}
+              loading={loading}
+              setLoading={setLoading}
+            />
+          </div>
+        </div>
+      ) : (
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+			{/* TODO -> REMOVE MARGIN AND SET STYLES */}
+          <div style={{ width: "60%", marginTop:120}}>
+            <p style={{fontSize:20, fontWeight:'300', textAlign:'center'}}>Loading...</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Auth;
