@@ -1,0 +1,83 @@
+.main__wrapper {
+	padding: 18px 20px 0 20px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	overflow-y: scroll;
+	height: 80vh;
+}
+
+.main__left__wrapper {
+	width: 55%;
+}
+.main__right__wrapper {
+	width: 40%;
+}
+
+.top__card__wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.create__form__wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.student__composition {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1.5%;
+}
+
+.student__composition__inner__wrapper {
+	width: 60%;
+	padding: 5px 20px;
+	border: 1px solid #eceef6;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.composition__text {
+	font-size: 26px;
+	font-weight: 700;
+	line-height: 15px;
+	margin-top: 10px;
+}
+.pie__chart__wrapper {
+	height: 9.5rem;
+}
+
+.frequency__wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1.5%;
+}
+
+.frequency__inner__wrapper {
+	width: 100%;
+	padding: 10px 20px;
+	border: 1px solid #eceef6;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.frequency__header {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	/* align-items: center; */
+	/* margin-top: 10px; */
+}
+.frequency__text {
+	font-size: 24px;
+	font-weight: 700;
+}
+.freq__response__wrapper {
+	height: 10.5rem;
+}

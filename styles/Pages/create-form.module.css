@@ -1,0 +1,25 @@
+.form__components {
+	padding: 18px 20px 0 20px;
+}
+.create__form__title {
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 42px;
+	font-feature-settings: 'salt' on, 'liga' off;
+}
+.create__form__status__wrap {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.button__wrapper {
+	width: 90%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	margin-top: 4%;
+}
+.button__internal__wrapper {
+	width: 20%;
+}

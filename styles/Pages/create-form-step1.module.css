@@ -1,0 +1,18 @@
+.form__input__wrapper{
+    width: 60%;
+    margin-bottom: 2%;
+}
+.form__input__wrapper:last-child{
+    margin-bottom: 0;
+}
+
+.create__form__body{
+    margin-top: 3%;
+    width: 100%;
+}
+.form__element{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
