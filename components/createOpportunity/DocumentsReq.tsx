@@ -8,51 +8,49 @@ import { MdLibraryAdd } from 'react-icons/md'
 
 import inputStyles from '../../styles/Components/CustomInput.module.css'
 import styles from '../../styles/Pages/create-form-step1.module.css'
+import CustomDocJ from './EligibilityReq/customDoc'
+const DocumentsReqJ = ({states}: any) => {
+	// const [customDocs, setCustomDocs] = React.useState<
+	// 	{
+	// 		title: string | null
+	// 		isDeleted: boolean
+	// 	}[]
+	// >([{ title: null, isDeleted: false }])
 
-const DocumentsReq = () => {
-	const [selectedCheckboxOptions, setSelectedCheckboxOptions] = React.useState<
-		string[]
-	>([])
+	// const addCustomDocComponent = () => {
+	// 	setCustomDocs((prevCustomDocs) => {
+	// 		return [...prevCustomDocs, { title: null, isDeleted: false }]
+	// 	})
+	// }
 
-	const [customDocs, setCustomDocs] = React.useState<
-		{
-			title: string | null
-			isDeleted: boolean
-		}[]
-	>([{ title: null, isDeleted: false }])
-
-	const addCustomDocComponent = () => {
-		setCustomDocs((prevCustomDocs) => {
-			return [...prevCustomDocs, { title: null, isDeleted: false }]
-		})
-	}
-
-	const deleteCustomDocComponent = (index: number) => {
-		setCustomDocs((prevCustomDocs) => {
-			const newCustomDocs = [...prevCustomDocs]
-			newCustomDocs[index].isDeleted = true
-			return newCustomDocs
-		})
-	}
+	// const deleteCustomDocComponent = (index: number) => {
+	// 	setCustomDocs((prevCustomDocs) => {
+	// 		const newCustomDocs = [...prevCustomDocs]
+	// 		newCustomDocs[index].isDeleted = true
+	// 		return newCustomDocs
+	// 	})
+	// }
 
 	const customDocsComponents = React.useMemo(
 		() =>
-			customDocs.map((customDoc, index) => {
+			states.customDocs.map((customDoc:any, index:any) => {
 				if (customDoc.isDeleted) return null
 				return (
-					<CustomDoc
+					<CustomDocJ
 						title={customDoc.title}
-						deleteCustomDocComponent={() => deleteCustomDocComponent(index)}
+						deleteCustomDocComponent={() => states.deleteCustomDocComponent(index)}
 						key={index}
+						index={index}
+						setCustomDocs={states.setCustomDocs}
 					/>
 				)
 			}),
-		[customDocs]
+		[states.customDocs]
 	)
 
 	return (
 		<div className={inputStyles.create__form__body}>
-			<DocCheckboxes setSelectedCheckboxOptions={setSelectedCheckboxOptions} />
+			<DocCheckboxes setSelectedCheckboxOptions={states.setSelectedCheckboxOptions} />
 			<div
 				style={{
 					display: 'flex',
@@ -91,7 +89,7 @@ const DocumentsReq = () => {
 							borderColor: 'black',
 							borderRadius: '6px',
 						}}
-						onClick={addCustomDocComponent}
+						onClick={states.addCustomDocComponent}
 					/>
 				</div>
 			</div>
@@ -99,4 +97,4 @@ const DocumentsReq = () => {
 	)
 }
 
-export default DocumentsReq
+export default DocumentsReqJ;

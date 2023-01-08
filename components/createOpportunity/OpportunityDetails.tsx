@@ -4,8 +4,8 @@ import axios from 'axios'
 import CustomInput from '../CustomInput'
 
 import styles from '../../styles/Pages/create-form-step1.module.css'
-
-const OpportunityDetails = () => {
+import moment from 'moment'
+const OpportunityDetails = ({states}: any) => {
 	const opportunityNatureData = [
 		{
 			value: 'full-time',
@@ -82,6 +82,9 @@ const OpportunityDetails = () => {
 						label={'Title'}
 						placeholder={'Enter the Title'}
 						type={'text'}
+						onChange={(e: any) => {
+							states.setTitle(e.target.value);
+						}}
 					/>
 				</div>
 				<div className={styles.form__input__wrapper}>
@@ -90,6 +93,9 @@ const OpportunityDetails = () => {
 						label={'Nature'}
 						placeholder={'Select'}
 						type={'drop-down'}
+						onChange={(e: any) => {
+							states.setNature(e);
+						}}
 					/>
 				</div>
 				<div className={styles.form__input__wrapper}>
@@ -98,6 +104,9 @@ const OpportunityDetails = () => {
 						label={'Deadline'}
 						placeholder={'Select a date'}
 						type={'date'}
+						onChange={(e: any) => {
+							states.setDeadline(moment(e._d).format('YYYY-MM-DD'));
+						}}
 					/>
 				</div>
 				<div className={styles.form__input__wrapper}>
@@ -106,6 +115,9 @@ const OpportunityDetails = () => {
 						label={'Salary/Stipend Range'}
 						placeholder={'Enter Estimated Salary'}
 						type={'text'}
+						onChange={(e: any) => {
+							states.setStipend(e.target.value);
+						}}
 					/>
 				</div>
 				<div className={styles.form__input__wrapper}>
@@ -114,6 +126,9 @@ const OpportunityDetails = () => {
 						label={'Location'}
 						placeholder={'Select'}
 						type={'drop-down'}
+						onChange={(e: any) => {
+							states.setLocation(e);
+						}}
 					/>
 				</div>
 				<div className={styles.form__input__wrapper}>
@@ -122,6 +137,9 @@ const OpportunityDetails = () => {
 						label={'Description'}
 						placeholder={'Enter the Description'}
 						type={'textarea'}
+						onChange={(e: any) => {
+							states.setDescription(e.target.value);
+						}}
 					/>
 				</div>
 			</div>

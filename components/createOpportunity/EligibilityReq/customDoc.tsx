@@ -3,21 +3,38 @@ import React from 'react'
 import { Button } from 'antd'
 import { DeleteOutlined, SaveOutlined } from '@ant-design/icons'
 
-import useFormStore from '../formStore'
+// import useFormStore from '../formStore'
 
 type CustomDocType = {
 	title: string | null
 	deleteCustomDocComponent: () => void
 	index: number,
-	flag: boolean
+	flag: boolean,
+    setCustomDocs: any
 }
 
-const CustomDoc = ({
+const CustomDocJ = ({
 	title,
 	deleteCustomDocComponent,
 	index,
+    setCustomDocs
 }: CustomDocType) => {
-	const { changeCustomDocTitleByIndex } = useFormStore()
+	// const { changeCustomDocTitleByIndex } = useFormStore()
+    const changeCustomDocTitleByIndex = (index: any, newVal: any) =>
+    {
+        // @ts-ignore
+        setCustomDocs((prevcustomDocs: any) => {
+            const newCustomDocs = [...prevcustomDocs]
+            newCustomDocs[index].title = newVal
+            return newCustomDocs;
+        })
+    }
+    // set((state) => {
+    //     const newCustomDocs = [...state.customDocs]
+    //     newCustomDocs[index].title = newVal
+    //     return { customDocs: newCustomDocs }
+    // }),
+
 
 	return (
 		<div
@@ -67,4 +84,4 @@ const CustomDoc = ({
 	)
 }
 
-export default CustomDoc
+export default CustomDocJ

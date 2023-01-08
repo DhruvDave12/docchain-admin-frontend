@@ -5,10 +5,7 @@ import CustomInput from '../../CustomInput'
 import styles from '../../../styles/Pages/create-form-step1.module.css'
 import EligibilityCheckboxes from './EligibilityCheckboxes'
 
-const EligibilityReq = () => {
-	const [selectedCheckboxOptions, setSelectedCheckboxOptions] = React.useState<
-		string[]
-	>([])
+const EligibilityReq = ({states}: any) => {
 
 	const branchData = [
 		{
@@ -41,7 +38,7 @@ const EligibilityReq = () => {
 		<div className={styles.create__form__body}>
 			<div className={styles.form__element}>
 				<EligibilityCheckboxes
-					setSelectedCheckboxOptions={setSelectedCheckboxOptions}
+					setSelectedCheckboxOptions={states.setSelectedCheckboxOptions}
 				/>
 				<div className={styles.form__input__wrapper}>
 					<CustomInput
@@ -49,6 +46,9 @@ const EligibilityReq = () => {
 						label={'Minimum CPI Requirement'}
 						placeholder={'Enter the Minimum CPI Requirement'}
 						type={'text'}
+						onChange={(e: any) => {
+							states.setMinCPI(e.target.value)
+						}}
 					/>
 				</div>
 				<div className={styles.form__input__wrapper}>
@@ -57,6 +57,9 @@ const EligibilityReq = () => {
 						label={'Nature'}
 						placeholder={'Select'}
 						type={'drop-down'}
+						onChange={(e: any) => {
+							states.setBranch(e)
+						}}
 					/>
 				</div>
 			</div>
